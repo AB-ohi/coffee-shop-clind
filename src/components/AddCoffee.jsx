@@ -10,9 +10,22 @@ const AddCoffee = () => {
         const category = form.category.value;
         const details = form.details.value;
         const Photo = form.Photo.value;
-        const user = {name,quentity,supplier,taste,category,details,Photo,}
+        const newCoffee = {name,quentity,supplier,taste,category,details,Photo,}
 
-        console.log(user)
+        console.log(newCoffee)
+        fetch('http://localhost:3000/coffee',{
+            method:"POST",
+            headers:{
+                'content-type':'application/json',
+            },
+            body:
+        })
+
+        .then(res =>res.json())
+        .then(data =>{
+            console.log(data)
+        })
+        .catch(error => console.log(error))
 
 
     }
