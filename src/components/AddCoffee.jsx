@@ -18,7 +18,7 @@ const AddCoffee = () => {
             headers:{
                 'content-type':'application/json',
             },
-            body:
+            body:JSON.stringify(newCoffee)
         })
 
         .then(res =>res.json())
