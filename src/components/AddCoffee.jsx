@@ -1,16 +1,18 @@
+import Swal from 'sweetalert2'
+
 const AddCoffee = () => {
 
     const handelAddCoffee = event =>{
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
-        const quentity = form.quentity.value;
+        const quantity = form.quantity.value;
         const supplier = form.Supplier.value;
         const taste = form.taste.value;
         const category = form.category.value;
         const details = form.details.value;
         const Photo = form.Photo.value;
-        const newCoffee = {name,quentity,supplier,taste,category,details,Photo,}
+        const newCoffee = {name,quantity,supplier,taste,category,details,Photo,}
 
         console.log(newCoffee)
         fetch('http://localhost:3000/coffee',{
@@ -23,7 +25,15 @@ const AddCoffee = () => {
 
         .then(res =>res.json())
         .then(data =>{
-            console.log(data)
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'coffee added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
         })
         .catch(error => console.log(error))
 
@@ -50,7 +60,7 @@ const AddCoffee = () => {
                         </label>
                         <label className="input-group">
                             <span>Quantity</span>
-                            <input type="text" name="quentity" placeholder="Available Quantity" className="input input-bordered" />
+                            <input type="text" name="quantity" placeholder="Available Quantity" className="input input-bordered" />
                         </label>
                     </div>
                 </div>

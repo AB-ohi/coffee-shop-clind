@@ -12,11 +12,12 @@ import UpdateCoffee from './components/UpdateCoffee.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />
+    element: <App />,
+    loader: () => fetch('http://localhost:3000/coffee')
   },
   {
     path:'/addCoffee',
-    element:<AddCoffee></AddCoffee>
+    element:<AddCoffee></AddCoffee>,
   },
   {
     path:'/updateCoffee',
